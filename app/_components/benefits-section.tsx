@@ -14,13 +14,13 @@ const benefitItems = [
 const collageImages = [
   {
     id: "primary",
-    src: "https://images.unsplash.com/photo-1464306076886-da185f6a9d12?auto=format&fit=crop&w=800&q=80",
+    src: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80",
     wrapper: "h-72 w-full rounded-[2rem] shadow-floating overflow-hidden",
     image: "h-full w-full object-cover",
   },
   {
     id: "secondary",
-    src: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+    src: "https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=800&q=80",
     wrapper:
       "h-48 w-full rounded-[1.5rem] shadow-xl overflow-hidden md:absolute md:-right-10 md:bottom-0 md:w-60",
     image: "h-full w-full object-cover",
