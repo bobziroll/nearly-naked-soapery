@@ -1,6 +1,7 @@
 import type {
   FieldSet,
   Record as AirtableRecord,
+  Records as AirtableRecords,
   SelectOptions,
 } from 'airtable';
 import { getAirtableTable } from '../airtableClient';
@@ -11,7 +12,7 @@ export type FetchRecordsOptions<TFields extends FieldSet> = {
 
 export async function fetchAirtableRecords<TFields extends FieldSet>(
   options: FetchRecordsOptions<TFields>
-): Promise<AirtableRecord<TFields>[]> {
+): Promise<AirtableRecords<TFields>> {
   const { tableName, ...selectOptions } = options;
   const table = getAirtableTable<TFields>(tableName);
 
