@@ -1,0 +1,3 @@
+- Always run `npm run build` after making changes.
+- Resolve any build errors discovered during that run before considering the task complete.
+

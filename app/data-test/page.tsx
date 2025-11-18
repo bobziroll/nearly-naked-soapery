@@ -8,7 +8,7 @@ type ProductFields = FieldSet & {
 }
 
 async function ProductsList() {
-    ;("use cache")
+    "use cache"
 
     cacheLife({
         stale: 0,
