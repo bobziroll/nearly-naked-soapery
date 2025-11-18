@@ -13,7 +13,7 @@ export function SiteHeader() {
                     width={440}
                     height={239}
                     priority
-                    className="h-auto w-48 max-w-full sm:w-64"
+                    className="h-auto w-36 max-w-full sm:w-42"
                 />
             </div>
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-end">

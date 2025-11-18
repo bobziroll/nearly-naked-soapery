@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nearly Naked Soap Co.",
+  title: "Nearly Naked Soapery",
   description:
     "Handcrafted organic soap inspired by nature and poured with love in small batches.",
 };
