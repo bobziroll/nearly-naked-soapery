@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
     return (
-        <section className="relative flex w-full flex-col gap-10 pb-12 pt-6 md:flex-row md:items-center md:gap-0 lg:pt-10">
-            <div className="mx-auto flex w-full max-w-content flex-1 flex-col pl-6 pr-4 md:pl-12 md:pr-8 lg:pl-16">
+        <section className="relative flex w-full flex-col gap-10 pb-12 pt-6 md:flex-row md:items-center md:gap-4 lg:gap-8 lg:pt-10">
+            <div className="flex w-full flex-1 flex-col pl-6 pr-4 md:items-end md:pl-12 md:pr-8 lg:pl-16">
                 <div className="space-y-8">
                     <div className="space-y-4">
                         <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
@@ -34,7 +34,7 @@ export function HeroSection() {
                     </div>
                 </div>
             </div>
-            <div className="relative flex-1 md:-mr-4 lg:-mr-8">
+            <div className="relative flex-1 md:pr-4 lg:pr-8">
                 <div className="relative rounded-[2.5rem] bg-white/70 p-4 shadow-floating backdrop-blur md:rounded-l-[2.5rem] md:rounded-r-none">
                     <Image
                         src="https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?auto=format&fit=crop&w=960&q=80"
