@@ -1,6 +1,7 @@
-import Image from "next/image";
+import Image from "next/image"
+import Link from "next/link"
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
     return (
@@ -22,8 +23,11 @@ export function HeroSection() {
                         </p>
                     </div>
                     <div className="flex flex-wrap items-center gap-4">
-                        <Button className="rounded-full px-8 py-6 text-sm uppercase tracking-[0.4em]">
-                            See Products
+                        <Button
+                            asChild
+                            className="rounded-full px-8 py-6 text-sm uppercase tracking-[0.4em]"
+                        >
+                            <Link href="/products">See Products</Link>
                         </Button>
                         <Button
                             variant="outline"
@@ -41,7 +45,7 @@ export function HeroSection() {
                         alt="Handcrafted soaps with flowers"
                         width={960}
                         height={640}
-                        className="h-80 w-full rounded-3xl object-cover shadow-floating sm:h-[28rem] md:rounded-l-3xl md:rounded-r-none"
+                        className="h-80 w-full rounded-3xl object-cover shadow-floating sm:h-112 md:rounded-l-3xl md:rounded-r-none"
                         priority
                     />
                     <Image
@@ -56,4 +60,3 @@ export function HeroSection() {
         </section>
     )
 }
-
