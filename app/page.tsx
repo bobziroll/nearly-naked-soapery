@@ -4,13 +4,11 @@ import { CtaBanner } from "@/app/_components/cta-banner";
 import { FeaturedProductSection } from "@/app/_components/featured-product";
 import { HeroSection } from "@/app/_components/hero-section";
 import { ProductGrid } from "@/app/_components/product-grid";
-import { SiteHeader } from "@/app/_components/site-header";
 import { TestimonialsSection } from "@/app/_components/testimonials-section";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
       <main className="space-y-10 pb-10">
         <HeroSection />
         <BenefitsSection />
