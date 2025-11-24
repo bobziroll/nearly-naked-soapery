@@ -1,45 +1,17 @@
-import type { FieldSet } from "airtable"
 import { Suspense } from "react"
-import { cacheLife } from "next/cache"
 import Image from "next/image"
 
 import ProductsFilterSection from "./products-filter-section"
-import { fetchAirtableRecords } from "@/lib/controllers/airtableRecords"
+import ProductsGrid from "./products-grid"
 import { PRODUCT_FIELDS } from "@/lib/airtableFields"
+import { loadProducts, type ProductsPromise } from "./load-products"
 
-type ProductFields = FieldSet & {
-    [PRODUCT_FIELDS.PRODUCT_NAME]?: string
-    [PRODUCT_FIELDS.PRODUCT_TYPE]?: string
-    [PRODUCT_FIELDS.PRICE]?: number
-    [PRODUCT_FIELDS.DESCRIPTION]?: string
-    [PRODUCT_FIELDS.SCENT_NOTES]?: string[]
-    [PRODUCT_FIELDS.IMAGES]?: Array<{ url: string }>
-    [PRODUCT_FIELDS.NAKED]?: boolean
-}
-
-async function loadProducts() {
-    "use cache"
-
-    cacheLife({
-        stale: 0,
-        revalidate: 60,
-        expire: 120,
-    })
-
-    const records = await fetchAirtableRecords<ProductFields>({
-        tableName: "Products",
-        view: "All Products",
-        returnFieldsByFieldId: true,
-    })
-
-    return records.map(record => ({
-        id: record.id,
-        fields: record.fields,
-    }))
-}
-
-async function ProductsFilterWrapper() {
-    const products = await loadProducts()
+async function ProductsFilterWrapper({
+    productsPromise,
+}: {
+    productsPromise: ProductsPromise
+}) {
+    const products = await productsPromise
 
     // Extract unique Product Types
     const productTypes = Array.from(
@@ -68,6 +40,8 @@ async function ProductsFilterWrapper() {
 }
 
 export default function ProductsPage() {
+    const productsPromise = loadProducts()
+
     return (
         <main className="mx-auto flex min-h-screen max-w-6xl flex-col items-center gap-8 px-4 pb-24 text-center">
             <Image
@@ -91,7 +65,17 @@ export default function ProductsPage() {
                     </div>
                 }
             >
-                <ProductsFilterWrapper />
+                <ProductsFilterWrapper productsPromise={productsPromise} />
+            </Suspense>
+
+            <Suspense
+                fallback={
+                    <div className="w-full max-w-4xl text-sm text-neutral-500">
+                        Loading products...
+                    </div>
+                }
+            >
+                <ProductsGrid productsPromise={productsPromise} />
             </Suspense>
         </main>
     )
