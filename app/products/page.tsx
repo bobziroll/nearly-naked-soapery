@@ -31,6 +31,10 @@ async function ProductsFilterWrapper({
         )
     ).sort()
 
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/865404e1-389b-41f2-8abb-4e6e30c2ff63',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'H2',location:'app/products/page.tsx:ProductsFilterWrapper',message:'computed filter lists',data:{productTypes:productTypes.length,productNames:productNames.length},timestamp:Date.now()})}).catch(()=>{})
+    // #endregion
+
     return (
         <ProductsFilterSection
             productTypes={productTypes}

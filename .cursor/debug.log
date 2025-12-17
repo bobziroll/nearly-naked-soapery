@@ -1,0 +1,14 @@
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H1","location":"app/products/load-products.ts:loadProducts:entry","message":"loadProducts start","data":{},"timestamp":1766002837436}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H1","location":"app/products/load-products.ts:loadProducts:entry","message":"loadProducts start","data":{},"timestamp":1766002838391}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H1","location":"app/products/load-products.ts:loadProducts:entry","message":"loadProducts start","data":{},"timestamp":1766002849589}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H1","location":"app/products/load-products.ts:loadProducts:entry","message":"loadProducts start","data":{},"timestamp":1766002850513}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H1","location":"app/products/load-products.ts:loadProducts:entry","message":"loadProducts start","data":{},"timestamp":1766002859933}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H1","location":"app/products/load-products.ts:loadProducts:entry","message":"loadProducts start","data":{},"timestamp":1766002860911}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H2","location":"app/products/page.tsx:ProductsFilterWrapper","message":"computed filter lists","data":{"productTypes":12,"productNames":44},"timestamp":1766003014389}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H3","location":"app/products/products-grid.tsx:ProductsGrid","message":"rendering products","data":{"count":66},"timestamp":1766003014390}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H2","location":"app/products/page.tsx:ProductsFilterWrapper","message":"computed filter lists","data":{"productTypes":12,"productNames":44},"timestamp":1766003014420}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H3","location":"app/products/products-grid.tsx:ProductsGrid","message":"rendering products","data":{"count":66},"timestamp":1766003014420}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H2","location":"app/products/page.tsx:ProductsFilterWrapper","message":"computed filter lists","data":{"productTypes":12,"productNames":44},"timestamp":1766003043468}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H3","location":"app/products/products-grid.tsx:ProductsGrid","message":"rendering products","data":{"count":66},"timestamp":1766003043469}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H2","location":"app/products/page.tsx:ProductsFilterWrapper","message":"computed filter lists","data":{"productTypes":12,"productNames":44},"timestamp":1766003043500}
+{"sessionId":"debug-session","runId":"run1","hypothesisId":"H3","location":"app/products/products-grid.tsx:ProductsGrid","message":"rendering products","data":{"count":66},"timestamp":1766003043500}

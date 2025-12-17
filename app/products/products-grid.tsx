@@ -18,6 +18,10 @@ export default async function ProductsGrid({
 }: ProductsGridProps) {
     const products = await productsPromise
 
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/865404e1-389b-41f2-8abb-4e6e30c2ff63',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'H3',location:'app/products/products-grid.tsx:ProductsGrid',message:'rendering products',data:{count:products.length},timestamp:Date.now()})}).catch(()=>{})
+    // #endregion
+
     return (
         <section className="w-full">
             <div className="grid w-full gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

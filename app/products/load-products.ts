@@ -44,7 +44,7 @@ export async function loadProducts(): Promise<ProductRecord[]> {
 
     const records = await fetchAirtableRecords<ProductFields>({
         tableName: "Products",
-        view: "All Products",
+        view: "viwKnPvfvQfDVDLft",
         returnFieldsByFieldId: true,
     })
 
