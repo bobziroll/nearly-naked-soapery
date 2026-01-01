@@ -58,9 +58,10 @@ async function ProductTypeTitle({
 export default async function ProductTypePage({
     params,
 }: {
-    params: { "product-type": string }
+    params: Promise<{ "product-type": string }>
 }) {
-    const productTypeSlug = params["product-type"]
+    const resolvedParams = await params
+    const productTypeSlug = resolvedParams["product-type"]
 
     return (
         <div className="flex w-full flex-col items-center gap-8">

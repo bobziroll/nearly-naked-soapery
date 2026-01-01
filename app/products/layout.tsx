@@ -1,6 +1,7 @@
 import { Suspense } from "react"
 
 import ProductsSidebar from "./products-sidebar"
+import ProductsMobileNav from "./products-mobile-nav"
 import { loadProducts } from "./load-products"
 import { PRODUCT_FIELDS } from "@/lib/airtableFields"
 
@@ -16,7 +17,14 @@ async function SidebarWrapper() {
         )
     ).sort()
 
-    return <ProductsSidebar productTypes={productTypes} />
+    return (
+        <>
+            <ProductsMobileNav productTypes={productTypes} />
+            <aside className="hidden w-64 shrink-0 md:block">
+                <ProductsSidebar productTypes={productTypes} />
+            </aside>
+        </>
+    )
 }
 
 export default function ProductsLayout({
@@ -25,22 +33,27 @@ export default function ProductsLayout({
     children: React.ReactNode
 }) {
     return (
-        <div className="mx-auto flex min-h-screen max-w-7xl gap-8 px-4 pb-24 pt-8">
+        <div className="mx-auto flex min-h-screen max-w-7xl flex-col gap-6 px-4 pb-24 pt-8 md:flex-row md:gap-8">
             <Suspense
                 fallback={
-                    <aside className="w-64 shrink-0">
-                        <div className="sticky top-24">
-                            <div className="mb-4 h-7 w-24 animate-pulse rounded bg-neutral-200" />
-                            <div className="space-y-1">
-                                {[1, 2, 3, 4].map(i => (
-                                    <div
-                                        key={i}
-                                        className="h-9 w-full animate-pulse rounded-md bg-neutral-100"
-                                    />
-                                ))}
-                            </div>
+                    <>
+                        <div className="w-full md:hidden">
+                            <div className="h-11 w-full animate-pulse rounded-lg bg-neutral-200" />
                         </div>
-                    </aside>
+                        <aside className="hidden w-64 shrink-0 md:block">
+                            <div className="sticky top-24">
+                                <div className="mb-4 h-7 w-24 animate-pulse rounded bg-neutral-200" />
+                                <div className="space-y-1">
+                                    {[1, 2, 3, 4].map(i => (
+                                        <div
+                                            key={i}
+                                            className="h-9 w-full animate-pulse rounded-md bg-neutral-100"
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </aside>
+                    </>
                 }
             >
                 <SidebarWrapper />
