@@ -2,18 +2,16 @@ import { Suspense } from "react"
 import { notFound } from "next/navigation"
 
 import ProductsGrid from "../products-grid"
-import { loadProducts, type ProductsPromise } from "../load-products"
+import { loadProducts } from "../load-products"
 import { PRODUCT_FIELDS } from "@/lib/airtableFields"
 import { deslugifyProductType, slugifyProductType } from "@/lib/utils"
 
 async function FilteredProductsGrid({
-    productsPromise,
     productTypeSlug,
 }: {
-    productsPromise: ProductsPromise
     productTypeSlug: string
 }) {
-    const products = await productsPromise
+    const products = await loadProducts()
 
     // Filter products by comparing slugs for case-insensitive matching
     const filteredProducts = products.filter(product => {
@@ -31,13 +29,11 @@ async function FilteredProductsGrid({
 }
 
 async function ProductTypeTitle({
-    productsPromise,
     productTypeSlug,
 }: {
-    productsPromise: ProductsPromise
     productTypeSlug: string
 }) {
-    const products = await productsPromise
+    const products = await loadProducts()
 
     // Find the actual product type name from the first matching product
     const matchingProduct = products.find(product => {
@@ -62,11 +58,9 @@ async function ProductTypeTitle({
 export default async function ProductTypePage({
     params,
 }: {
-    params: Promise<{ "product-type": string }>
+    params: { "product-type": string }
 }) {
-    const resolvedParams = await params
-    const productTypeSlug = resolvedParams["product-type"]
-    const productsPromise = loadProducts()
+    const productTypeSlug = params["product-type"]
 
     return (
         <div className="flex w-full flex-col items-center gap-8">
@@ -77,10 +71,7 @@ export default async function ProductTypePage({
                     </div>
                 }
             >
-                <ProductTypeTitle
-                    productsPromise={productsPromise}
-                    productTypeSlug={productTypeSlug}
-                />
+                <ProductTypeTitle productTypeSlug={productTypeSlug} />
             </Suspense>
 
             <Suspense
@@ -90,10 +81,7 @@ export default async function ProductTypePage({
                     </div>
                 }
             >
-                <FilteredProductsGrid
-                    productsPromise={productsPromise}
-                    productTypeSlug={productTypeSlug}
-                />
+                <FilteredProductsGrid productTypeSlug={productTypeSlug} />
             </Suspense>
         </div>
     )

@@ -139,7 +139,7 @@ export default function FilterableProducts({
                 <p className="text-sm text-neutral-500">Updating filters…</p>
             )}
 
-            <ProductsGrid products={filteredProducts} />
+            <ProductsGrid productsPromise={Promise.resolve(filteredProducts)} />
         </div>
     )
 }
