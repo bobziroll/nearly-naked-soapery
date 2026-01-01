@@ -37,9 +37,9 @@ export async function loadProducts(): Promise<ProductRecord[]> {
     "use cache"
 
     cacheLife({
-        stale: 0,
-        revalidate: 60,
-        expire: 120,
+        stale: 120, // serve cached for 2 minutes
+        revalidate: 120, // revalidate in the background after 2 minutes
+        expire: 300, // hard expire after 5 minutes
     })
 
     const records = await fetchAirtableRecords<ProductFields>({
