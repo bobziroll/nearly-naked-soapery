@@ -4,7 +4,7 @@ import Link from "next/link"
 const navLinks = [
     { label: "About", href: "#" },
     { label: "Products", href: "/products" },
-    { label: "Contact", href: "#" },
+    { label: "Contact", href: "/contact" },
 ]
 
 export function SiteHeader() {
