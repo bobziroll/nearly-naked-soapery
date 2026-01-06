@@ -10,6 +10,7 @@ export const PRODUCT_FIELDS = {
     SCENT_NOTES: "flde5vZZaueXFjplm",
     IMAGES: "fldA5ZauEbTdVW56d",
     NAKED: "fldDuifvUby3Rrg8i",
+    ACTIVE: "fld17IyGrIaB1thAO",
 } as const
 
 /**

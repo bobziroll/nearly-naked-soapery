@@ -16,8 +16,8 @@ export default function ProductsSidebar({
     const isAllProducts = pathname === "/products"
 
     return (
-        <aside className="w-64 shrink-0">
-            <nav className="sticky top-24">
+        <aside className="w-64 shrink-0 md:sticky md:top-24 md:self-start">
+            <nav>
                 <h2 className="mb-4 text-lg font-semibold text-neutral-900">
                     Products
                 </h2>

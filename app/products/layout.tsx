@@ -20,7 +20,7 @@ async function SidebarWrapper() {
     return (
         <>
             <ProductsMobileNav productTypes={productTypes} />
-            <aside className="hidden w-64 shrink-0 md:block">
+            <aside className="hidden w-64 shrink-0 md:block md:sticky md:top-24 md:self-start">
                 <ProductsSidebar productTypes={productTypes} />
             </aside>
         </>
@@ -40,7 +40,7 @@ export default function ProductsLayout({
                         <div className="w-full md:hidden">
                             <div className="h-11 w-full animate-pulse rounded-lg bg-neutral-200" />
                         </div>
-                        <aside className="hidden w-64 shrink-0 md:block">
+                        <aside className="hidden w-64 shrink-0 md:block md:sticky md:top-24 md:self-start">
                             <div className="sticky top-24">
                                 <div className="mb-4 h-7 w-24 animate-pulse rounded bg-neutral-200" />
                                 <div className="space-y-1">

@@ -46,6 +46,8 @@ export async function loadProducts(): Promise<ProductRecord[]> {
         tableName: "Products",
         view: "viwKnPvfvQfDVDLft",
         returnFieldsByFieldId: true,
+        // Only active products
+        filterByFormula: `{${PRODUCT_FIELDS.ACTIVE}}`,
     })
 
     return records.map(record => ({
