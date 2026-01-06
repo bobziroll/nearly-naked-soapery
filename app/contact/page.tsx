@@ -82,7 +82,7 @@ export default function ContactPage() {
                     I run this business out of my living room in South Jordan,
                     UT, which is where my "storefront" is. If you're interested
                     in stopping by to check out what I have to offer, please
-                    send me a message with the form below with a short note.
+                    send me a message via the form below with a short note.
                     This sends me an email directly, and I can get in touch with
                     you from there to get you my details!
                 </p>
