@@ -61,6 +61,10 @@
   --accent: oklch(0.9 0.05 150);
   --accent-foreground: oklch(0.25 0.04 150);
   --destructive: oklch(0.6 0.19 27);
+  --product-badge-bg: oklch(0.41 0.08 70); /* deep olive/wood tone */
+  --product-badge-text: oklch(0.98 0.02 95);
+  --product-badge-naked-bg: oklch(0.96 0.03 90); /* cream */
+  --product-badge-naked-text: oklch(0.2 0.03 70); /* near black */
   --border: oklch(0.92 0.01 80);
   --input: oklch(0.92 0.01 80);
   --ring: oklch(0.81 0.04 80);

@@ -25,6 +25,12 @@ export default async function ProductsGrid({
                     const fields = product.fields
                     const productName = fields[PRODUCT_FIELDS.PRODUCT_NAME]
                     const productType = fields[PRODUCT_FIELDS.PRODUCT_TYPE]
+                    const productBadgeRaw = fields[PRODUCT_FIELDS.PRODUCT_BADGE]
+                    const productBadge =
+                        typeof productBadgeRaw === "string"
+                            ? productBadgeRaw
+                            : null
+                    const isNaked = fields[PRODUCT_FIELDS.NAKED] === true
                     const scentNotes = fields[PRODUCT_FIELDS.SCENT_NOTES]
                     const price = fields[PRODUCT_FIELDS.PRICE]
                     const attachments = fields[PRODUCT_FIELDS.IMAGES]
@@ -61,6 +67,36 @@ export default async function ProductsGrid({
                                         </div>
                                     )}
                                 </div>
+                                {(productBadge || isNaked) && (
+                                    <div className="pointer-events-none absolute inset-0 flex items-start justify-between p-3">
+                                        <div className="flex flex-col gap-2">
+                                            {productBadge && (
+                                                <span
+                                                    className="rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-wide"
+                                                    style={{
+                                                        background:
+                                                            "var(--product-badge-bg)",
+                                                        color: "var(--product-badge-text)",
+                                                    }}
+                                                >
+                                                    {productBadge}
+                                                </span>
+                                            )}
+                                        </div>
+                                        {isNaked === true && (
+                                            <span
+                                                className="rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-wide"
+                                                style={{
+                                                    background:
+                                                        "var(--product-badge-naked-bg)",
+                                                    color: "var(--product-badge-naked-text)",
+                                                }}
+                                            >
+                                                Naked
+                                            </span>
+                                        )}
+                                    </div>
+                                )}
                             </div>
                             <div className="flex flex-1 flex-col items-center gap-2 px-6 pb-8 pt-6 text-center">
                                 <p className="text-xl font-semibold text-neutral-900">

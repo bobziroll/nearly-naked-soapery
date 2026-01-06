@@ -11,6 +11,7 @@ export const PRODUCT_FIELDS = {
     IMAGES: "fldA5ZauEbTdVW56d",
     NAKED: "fldDuifvUby3Rrg8i",
     ACTIVE: "fld17IyGrIaB1thAO",
+    PRODUCT_BADGE: "fldsAEQ5uHlVl7W5H",
 } as const
 
 /**
