@@ -26,6 +26,9 @@ export type ProductFields = FieldSet & {
     [PRODUCT_FIELDS.SCENT_NOTES]?: string
     [PRODUCT_FIELDS.IMAGES]?: AirtableAttachment[]
     [PRODUCT_FIELDS.NAKED]?: boolean
+    [PRODUCT_FIELDS.FEATURED]?: boolean
+    [PRODUCT_FIELDS.ACTIVE]?: boolean
+    [PRODUCT_FIELDS.PRODUCT_BADGE]?: string
 }
 
 export type ProductRecord = {
@@ -43,17 +46,26 @@ export async function loadProducts(): Promise<ProductRecord[]> {
     })
 
     const records = await fetchAirtableRecords<ProductFields>({
-        tableName: "Products",
-        view: "viwKnPvfvQfDVDLft",
+        // Use table ID so renaming the table will not break the integration.
+        tableName: "tblAVJgfvuw4ZCHre",
         returnFieldsByFieldId: true,
         // Only active products
         filterByFormula: `{${PRODUCT_FIELDS.ACTIVE}}`,
     })
 
-    return records.map(record => ({
+    const products = records.map(record => ({
         id: record.id,
         fields: record.fields,
     }))
+
+    // Featured products first, otherwise preserve Airtable order
+    products.sort((a, b) => {
+        const aFeatured = a.fields[PRODUCT_FIELDS.FEATURED] === true ? 1 : 0
+        const bFeatured = b.fields[PRODUCT_FIELDS.FEATURED] === true ? 1 : 0
+        return bFeatured - aFeatured
+    })
+
+    return products
 }
 
 export type ProductsPromise = ReturnType<typeof loadProducts>

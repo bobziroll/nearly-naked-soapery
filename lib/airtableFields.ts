@@ -12,6 +12,7 @@ export const PRODUCT_FIELDS = {
     NAKED: "fldDuifvUby3Rrg8i",
     ACTIVE: "fld17IyGrIaB1thAO",
     PRODUCT_BADGE: "fldsAEQ5uHlVl7W5H",
+    FEATURED: "fldlrp4gvA9E4c8oD",
 } as const
 
 /**
