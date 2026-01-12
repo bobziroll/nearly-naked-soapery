@@ -2,20 +2,11 @@ import { Suspense } from "react"
 
 import ProductsSidebar from "./products-sidebar"
 import ProductsMobileNav from "./products-mobile-nav"
-import { loadProducts } from "./load-products"
-import { PRODUCT_FIELDS } from "@/lib/airtableFields"
+import { loadProductCategories } from "./load-product-categories"
 
 async function SidebarWrapper() {
-    const products = await loadProducts()
-
-    // Extract unique Product Types
-    const productTypes = Array.from(
-        new Set(
-            products
-                .map(p => p.fields[PRODUCT_FIELDS.PRODUCT_TYPE])
-                .filter((type): type is string => typeof type === "string")
-        )
-    ).sort()
+    const categories = await loadProductCategories()
+    const productTypes = categories.map(c => c.name)
 
     return (
         <>

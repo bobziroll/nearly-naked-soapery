@@ -20,3 +20,12 @@ export const PRODUCT_FIELDS = {
  */
 export type ProductFieldId = (typeof PRODUCT_FIELDS)[keyof typeof PRODUCT_FIELDS]
 
+/**
+ * Airtable field ID mappings for the Product Categories table.
+ */
+export const CATEGORY_FIELDS = {
+    NAME: "fldxuPZp7GbTCBfQf",
+    PRODUCT_IDS: "fldSBdKvGFnk1T3i2",
+} as const
+
+export type CategoryFieldId = (typeof CATEGORY_FIELDS)[keyof typeof CATEGORY_FIELDS]

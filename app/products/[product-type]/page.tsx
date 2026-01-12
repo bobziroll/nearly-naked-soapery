@@ -44,7 +44,7 @@ async function ProductTypeContent({
                 </h1>
             </div>
 
-            <ProductsGrid productsPromise={Promise.resolve(filteredProducts)} />
+            <ProductsGrid products={filteredProducts} />
         </div>
     )
 }

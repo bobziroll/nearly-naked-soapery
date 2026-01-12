@@ -1,10 +1,10 @@
 import Image from "next/image"
 
 import { PRODUCT_FIELDS } from "@/lib/airtableFields"
-import type { ProductsPromise } from "./load-products"
+import type { ProductRecord } from "./load-products"
 
 type ProductsGridProps = {
-    productsPromise: ProductsPromise
+    products: ProductRecord[]
 }
 
 const currencyFormatter = new Intl.NumberFormat("en-US", {
@@ -13,11 +13,7 @@ const currencyFormatter = new Intl.NumberFormat("en-US", {
     minimumFractionDigits: 2,
 })
 
-export default async function ProductsGrid({
-    productsPromise,
-}: ProductsGridProps) {
-    const products = await productsPromise
-
+export default function ProductsGrid({ products }: ProductsGridProps) {
     return (
         <section className="w-full">
             <div className="grid w-full gap-8 sm:grid-cols-2 md:grid-cols-3">
