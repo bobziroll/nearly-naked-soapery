@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { Resend } from "resend"
 
 const RESEND_FROM = "Nearly Naked Soapery <onboarding@resend.dev>"
-const RESEND_TO = "elderziroll@gmail.com"
+const RESEND_TO = "nancygrisel@gmail.com"
 const RATE_LIMIT = 5
 const RATE_WINDOW_MS = 60_000
 
